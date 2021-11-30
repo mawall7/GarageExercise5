@@ -19,8 +19,13 @@ namespace GarageExercise5
             Model = model;
         }
 
+        public override string ToString()
+        {
+            return $"Vehicle:\nRegNr:{RegNr}\nVType:{Type}\nSize:{Size}\nSpot:{GetSpot()}\n CarModel:{Model}";
+        }
 
-        
-    
+
+
+
     }
 }

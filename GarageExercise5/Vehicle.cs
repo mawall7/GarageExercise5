@@ -4,7 +4,7 @@ using System.Text;
 
 namespace GarageExercise5
 {
-    public abstract class Vehicle
+    public abstract class Vehicle : IVehicle
     {
         public VehicleType Type { get; set; }
         public string RegNr { get; set; }
@@ -36,7 +36,7 @@ namespace GarageExercise5
 
         public override string ToString()
         {
-            return $"Vehicle:\nRegNr:{RegNr}\nVType:{Type}\nSize:{Size}\n";
+            return $"Vehicle:\nRegNr:{RegNr}\nVType:{Type}\nSize:{Size}\nSpot:{spot}";
         }
 
     }

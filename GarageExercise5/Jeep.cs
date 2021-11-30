@@ -12,5 +12,10 @@ namespace GarageExercise5
         {
             horsePowers = horsePow;
         }
+
+        public override string ToString()
+        {
+            return $"Vehicle:\nRegNr:{RegNr}\nVType:{Type}\nSize:{Size}\n Spot:{GetSpot()}\n HorsePowers:{horsePowers}";
+        }
     }
 }

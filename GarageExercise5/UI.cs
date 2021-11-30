@@ -10,5 +10,22 @@ namespace GarageExercise5
         {
             Console.WriteLine(s);
         }
+
+        public static void PrintMenu()
+        {
+           Console.WriteLine("1.Park\n2.Unpark\n3.ListVehicles");
+        }
+
+        internal static ConsoleKey GetKey()
+            {
+                return Console.ReadKey().Key;
+            }
+
+        internal static void Clear()
+        {
+            Console.Clear();
+            Console.SetCursorPosition(0, 0);
+        }
+
     }
 }

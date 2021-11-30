@@ -11,5 +11,10 @@ namespace GarageExercise5
         {
             nrCylinders = nrCyl;
         }
+
+        public override string ToString()
+        {
+            return $"Vehicle:\nRegNr:{RegNr}\nVType:{Type}\nSize:{Size}\n Spot:{GetSpot()}\n nrCylinders:{nrCylinders}";
+        }
     }
 }

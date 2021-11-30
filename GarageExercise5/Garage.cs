@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections;
 using System.Collections.Generic;
+using System.Linq;
 using System.Text;
 
 namespace GarageExercise5
@@ -33,6 +34,27 @@ namespace GarageExercise5
         public void AddVehicle(Vehicle v)
         {
             GarageOfVehicles.Add(v);
+        }
+
+        public bool EraseVehicle(Vehicle ve)
+        {
+            Vehicle vOut = GarageOfVehicles.Where(v => v == ve).FirstOrDefault();
+            if (vOut == null)
+                return false;
+            
+            else return GarageOfVehicles.Remove(vOut);
+        }
+
+        public Vehicle SearchVehicle(string r) 
+        {
+            Vehicle vSearch = GarageOfVehicles.Where(v => v.RegNr == r).FirstOrDefault();
+            if (vSearch != null)
+            {
+                return vSearch;
+            }
+            else return null;
+                
+
         }
     }
 }

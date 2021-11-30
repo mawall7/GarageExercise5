@@ -12,8 +12,12 @@ namespace GarageExercise5
             NrPassengers = nrPassengers;
         }
 
+        public override string ToString()
+        {
+            return $"Vehicle:\nRegNr:{RegNr}\nVType:{Type}\nSize:{Size}\n Spot:{GetSpot()}\n NPassengers:{NrPassengers}";
+        }
 
-       
-        
+
+
     }
 }
