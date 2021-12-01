@@ -8,17 +8,18 @@ namespace GarageExercise5
     {
         public static void Print(T s)
         {
+            if(s!=null)
             Console.WriteLine(s);
         }
 
         public static void PrintMenu()
         {
-           Console.WriteLine("1.Park\n2.Unpark\n3.ListVehicles");
+           Console.WriteLine("1 = Park\n2 = Unpark\n3 = ListVehicles\nQ = Quit");
         }
 
         internal static ConsoleKey GetKey()
             {
-                return Console.ReadKey().Key;
+                return Console.ReadKey(intercept : true).Key;
             }
 
         internal static void Clear()

@@ -6,10 +6,10 @@ namespace GarageExercise5
 {
     public class GarageHandler
     {
-        private Garage garage;
+        private Garage<Vehicle> garage;
         public void CreateGarage(int Nspots)
         {
-            garage = new Garage(Nspots);
+            garage = new Garage<Vehicle>(Nspots);
         }
 
         public void ListV()
@@ -28,16 +28,22 @@ namespace GarageExercise5
 
         }
 
-        public void Addnew(Vehicle v)
+        public void Addnew(Vehicle v, int x)
         {
-            garage.AddVehicle(v);
+            garage.AddVehicle(v, x);
 
         }
 
-        public bool TakeOut(string regnr)
+        public bool TakeOut(string regnr) //remove vehicle
         {
             var v = garage.SearchVehicle(regnr);
+
             return garage.EraseVehicle(v);
         }
+
+        //public bool SearchVehicle(Garage garage)
+        //{
+        //    garage.FirstOrDefault()
+        //}
     }
 }

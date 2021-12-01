@@ -10,6 +10,7 @@ namespace GarageExercise5
             AppSession session = new AppSession();
             session.Run();
             Console.WriteLine("Session ended! You are using GarageApplication v.1.");
+            Console.ReadLine();
 
 
         }
