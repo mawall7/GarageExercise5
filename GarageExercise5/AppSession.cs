@@ -17,6 +17,7 @@ namespace GarageExercise5
 
         private void Initialize()
         {
+            Console.BackgroundColor = ConsoleColor.DarkBlue;
             handler = new GarageHandler();
             handler.CreateGarage(20);
             handler.Addnew(new Buss(Vehicle.VehicleType.Buss, "ABC123", 3, 1, 40), 1);

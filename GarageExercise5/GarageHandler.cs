@@ -28,7 +28,7 @@ namespace GarageExercise5
             }
 
         }
-
+        
         public void Addnew(Vehicle v, int x)
         {
             string message = garage.AddVehicle(v, x) ? "Vehicle Added" : "Vehicle could not be parked";
