@@ -22,11 +22,21 @@ namespace GarageExercise5
         }
 
 
-        public void AddVehicle(Vehicle v, Index x)
+        public bool AddVehicle(Vehicle v, int x)
         {
-            GarageOfVehicles[x] = v;
+
+            if (x < GarageLength && SearchVehicle(x) == false)
+            {
+                GarageOfVehicles[x] = v;
+                return true;
+            }
+            else 
+                return false;
+            
             //GarageOfVehicles.Append(v);
         }
+
+        public int GarageLength => GarageOfVehicles.Length; 
 
         public bool EraseVehicle(Vehicle v) 
         {
@@ -77,6 +87,23 @@ namespace GarageExercise5
             //Vehicle vSearch = GarageOfVehicles.Where(v => v.RegNr == r).FirstOrDefault();
 
             return result;
+
+        }
+
+        public bool SearchVehicle(Vehicle v)
+        {
+            bool value = GarageOfVehicles.Contains(v)? true : false;
+            return value;
+        }
+
+        public bool SearchVehicle(int x)
+        {
+            bool value = false;
+
+            if (x < GarageOfVehicles.Length)
+                value = GarageOfVehicles[x] != null ? true : false;  
+             
+            return value;
 
         }
 

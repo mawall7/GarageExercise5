@@ -55,6 +55,7 @@ namespace GarageExercise5
             switch (keyPressed)
             {
                 case "D1":
+                    
                     AddNewVehicle();
                     break;
 
@@ -87,7 +88,8 @@ namespace GarageExercise5
 
         private void AddNewVehicle()
         {
-            //UI<Vehicle>.PrintVehicleMenu();
+            //UI<Vehicle>.PrintVehicleMenu(); ToDo
+            UI<String>.Print("Input TypeOfVehicle :\nCar = C, Bus = B, M = Motorcycle, J = Jeep");
             var key = UI<Vehicle>.GetKey();
             var dict = new Dictionary<ConsoleKey, Action>()
             {
@@ -113,11 +115,12 @@ namespace GarageExercise5
             try
             {
 
-         Car car = new Car(Vehicle.VehicleType.Car, ReadregNr() , ReadSize(), ReadSpotNr(), ChooseModel());
+                Car car = new Car(Vehicle.VehicleType.Car, ReadregNr() , ReadSize(), ReadSpotNr(), ChooseModel());
                 //Vehicle v = AskforV(VTypes.Car); //använd dependency injection istället och fråga bara efter ett visst typ av fordon?
                 //var v = new Car(t, regNr, size, spot, m);
-
-                Console.WriteLine($"Car with regNr {car.RegNr} parkred at spot{car.GetSpot()}"); 
+                //ToDo see available spots // cars
+                handler.Addnew(car, car.GetSpot());
+                Console.WriteLine($"Car with regNr {car.RegNr} parked at spot{car.GetSpot()}"); 
 
                        }
             catch (Exception e)
@@ -131,7 +134,7 @@ namespace GarageExercise5
         private string ReadregNr()
         {
             UI<string>.Print("RegNr:");
-            return Console.ReadLine();
+            return Console.ReadLine().ToUpper();
         } 
 
         private int ReadSpotNr()

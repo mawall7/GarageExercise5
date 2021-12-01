@@ -16,23 +16,26 @@ namespace GarageExercise5
         {
             
             var builder = new StringBuilder();
+            UI<string>.Print("Vehicles Parked\n______________________\n");
             foreach (var v in garage)
             {
-                
                 //behöver använda interface som för drawable i game för att slippa att overrida ToString i alla vehicle klasser?
-                     
-                UI<Vehicle>.Print(v); //ToDo lägg till IUI istället
-                
-                //Console.WriteLine($"Vehicle:\nRegNr:{v.RegNr}\nVType:{v.Type}\nSize:{v.Size}\nSpot:{v.GetSpot()}");
+                if (v != null)
+                {
+                    UI<Vehicle>.Print(v); //ToDo lägg till IUI istället
+                    UI<string>.Print("-------------------\n");
+                }
             }
 
         }
 
         public void Addnew(Vehicle v, int x)
         {
-            garage.AddVehicle(v, x);
-
+            string message = garage.AddVehicle(v, x) ? "Vehicle Added" : "Vehicle could not be parked";
+            
+           UI<string>.Print(message);
         }
+
 
         public bool TakeOut(string regnr) //remove vehicle
         {
@@ -41,9 +44,6 @@ namespace GarageExercise5
             return garage.EraseVehicle(v);
         }
 
-        //public bool SearchVehicle(Garage garage)
-        //{
-        //    garage.FirstOrDefault()
-        //}
+       
     }
 }
