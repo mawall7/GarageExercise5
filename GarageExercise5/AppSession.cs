@@ -55,6 +55,11 @@ namespace GarageExercise5
 
             switch (keyPressed)
             {
+                case "D0":
+                    CreateNewGarage();
+                    break;
+                    
+
                 case "D1":
                     
                     AddNewVehicle();
@@ -87,10 +92,37 @@ namespace GarageExercise5
 
         }
 
+        private void CreateNewGarage()
+        {
+            UI<string>.Print("Enter Size, Nbr of spots"); //ToDo validation
+            var key1 = UI<string>.GetInput(); // ToDo change to ReadLine();
+            UI<string>.Print("Park Vehicles from start? y/n");
+            var key2 = UI<string>.GetKey();
+            switch (key2)
+            {
+                case ConsoleKey.N:
+                    handler.CreateGarage(int.Parse(key1));
+                    break;
+                case ConsoleKey.Y:
+                    handler.CreateGarage(int.Parse(key1));
+                    UI<string>.Print("How many vehicles?");
+                    var key3 = int.Parse(UI<string>.GetInput());
+                    for (int i = 0; i < key3; i++)
+                    {
+                        AddNewVehicle();
+                    }
+                    break;
+                  
+                    
+
+            }
+            
+        }
+
         private void AddNewVehicle()
         {
             //UI<Vehicle>.PrintVehicleMenu(); ToDo
-            UI<String>.Print("Input TypeOfVehicle :\nCar = C, Bus = B, M = Motorcycle, J = Jeep");
+            UI<String>.Print("Input TypeOfVehicle :\nCar = C, Bus = B, M = Motorcycle, J = Jeep\n");
             var key = UI<Vehicle>.GetKey();
             var dict = new Dictionary<ConsoleKey, Action>()
             {
@@ -146,12 +178,10 @@ namespace GarageExercise5
 
         private int ReadSize()
         {
-            UI<string>.Print("Size");
+            UI<string>.Print("Size:");
             return int.Parse(Console.ReadLine());
         }
-        
-        
-
+      
         private Car.CarModel ChooseModel()
         {
             Console.WriteLine("Choose carmodel\n 1 = Combi\n 2= Sonnet\n 3 = Cabriolet\n");

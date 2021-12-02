@@ -27,7 +27,7 @@ namespace GarageExercise5
 
             if (x < GarageLength && SearchVehicle(x) == false)
             {
-                GarageOfVehicles[x] = v;
+                GarageOfVehicles[x-1] = v;
                 return true;
             }
             else 

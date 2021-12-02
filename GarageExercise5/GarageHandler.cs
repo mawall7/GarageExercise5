@@ -15,17 +15,24 @@ namespace GarageExercise5
         public void ListV()
         {
             
-            var builder = new StringBuilder();
+            // ToDo builder = new StringBuilder();
             UI<string>.Print("Vehicles Parked\n______________________\n");
+            var x = 0;
             foreach (var v in garage)
             {
-                //behöver använda interface som för drawable i game för att slippa att overrida ToString i alla vehicle klasser?
+                x = x+1;
+               //ToDo behöver använda interface som för drawable i game 
+                Console.Write(x.ToString() + ".");
                 if (v != null)
                 {
-                    UI<Vehicle>.Print(v); //ToDo lägg till IUI istället
-                    UI<string>.Print("-------------------\n");
+
+                    UI<string>.Print($"Regnr:{ v.RegNr} Type:{v.Type}\n");
+                    //UI<string>.Print("-------------------\n");
                 }
+                else if (v == null) 
+                    UI<string>.Print("empty\n");
             }
+            UI<string>.Print("______________________\n");
 
         }
         

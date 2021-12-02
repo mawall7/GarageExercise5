@@ -9,12 +9,13 @@ namespace GarageExercise5
         public static void Print(T s)
         {
             if(s!=null)
-            Console.WriteLine(s);
+            Console.Write(s);
         }
 
         public static void PrintMenu()
         {
-           Console.WriteLine("1 = Park\n2 = Unpark\n3 = ListVehicles\nQ = Quit");
+           Console.WriteLine("0 = Add a new Garage\n1 = Park\n2 = Unpark\n3 = ListVehicles\nQ = Quit");
+        
         }
 
         internal static ConsoleKey GetKey()
@@ -22,6 +23,11 @@ namespace GarageExercise5
                 return Console.ReadKey(intercept : true).Key;
             }
 
+        internal static string GetInput()
+        {
+            return Console.ReadLine();
+        }
+       
         internal static void Clear()
         {
             Console.Clear();
