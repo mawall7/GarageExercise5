@@ -4,7 +4,7 @@ using System.Text;
 
 namespace GarageExercise5
 {
-    enum VTypes
+    public enum VTypes
     {
         Car,
         Motorcycle,

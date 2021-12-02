@@ -17,7 +17,9 @@ namespace GarageExercise5
             MotorCycle,
             Car,
             Jeep,
-            Buss
+            Buss,
+            Boat,
+            Airplane
         }
 
         public Vehicle(VehicleType type, string regNr, int size, int spot)

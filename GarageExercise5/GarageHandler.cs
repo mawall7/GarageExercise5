@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Linq;
 using System.Text;
 
 namespace GarageExercise5
@@ -32,10 +33,31 @@ namespace GarageExercise5
                 else if (v == null) 
                     UI<string>.Print("empty\n");
             }
+
+            PrintTypes();
             UI<string>.Print("______________________\n");
 
         }
-        
+
+        public void PrintTypes()
+        {
+            try
+            {
+                garage.Where(a => a?.Type == Vehicle.VehicleType.Car).ToList().ForEach(x => Console.WriteLine($"Cars:\n{ x}"));
+
+
+            }
+            catch (Exception)
+            {
+
+                throw;
+            }
+            var NCars = 0;
+            var MCycles = 0;
+            var Airplanes = 0;
+            
+        }
+
         public void Addnew(Vehicle v, int x)
         {
             string message = garage.AddVehicle(v, x) ? "Vehicle Added" : "Vehicle could not be parked";
