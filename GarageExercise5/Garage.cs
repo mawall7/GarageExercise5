@@ -17,7 +17,7 @@ namespace GarageExercise5
         public List<Buss> Busses = new List<Buss>();
 
         
-        public int NrOfCars { get; set; }
+        public int NrOfCars { get; set; } 
         public int NrOfAirplanes { get; set; }
         public int NrOfMotorCycles { get; set; }
         public int NrOfBoats { get; set; }
@@ -36,15 +36,6 @@ namespace GarageExercise5
 
         public bool AddVehicle(Vehicle v, int x)
         {
-
-            if (x < GarageLength && SearchVehicle(x) == false)
-            {
-                GarageOfVehicles[x-1] = v;
-                
-                return true;
-            }
-            else 
-                return false;
             if (v.Type == Vehicle.VehicleType.Buss)
                 NrOfBusses++;
             if (v.Type == Vehicle.VehicleType.Car)
@@ -55,6 +46,15 @@ namespace GarageExercise5
                 NrOfMotorCycles++;
             if (v.Type == Vehicle.VehicleType.Boat)
                 NrOfBoats++;
+
+            if (x < GarageLength && SearchVehicle(x) == false)
+            {
+                GarageOfVehicles[x-1] = v;
+                
+                return true;
+            }
+            else 
+                return false;
 
 
             //GarageOfVehicles.Append(v);

@@ -41,10 +41,16 @@ namespace GarageExercise5
 
         public void PrintTypes()
         {
-            try
-            {
-                garage.Where(a => a?.Type == Vehicle.VehicleType.Car).ToList().ForEach(x => Console.WriteLine($"Cars:\n{ x}"));
+           
+            UI<string>.Print("\nNr Of each Type of Vehicle\n"); UI<string>.Print("______________________\n");
 
+            UI<string>.Print($"Car:{garage.NrOfCars}\nMotorcycle:{garage.NrOfMotorCycles}\nBusses:{garage.NrOfBusses}\nBoats:{garage.NrOfBoats}\nJeeps:{garage.NrOfJeeps}\nAirplanes:{garage.NrOfAirplanes}\n\n");
+            try
+            {   foreach (var item in Enum.GetValues(typeof(Vehicle.VehicleType)))
+                {
+                    garage.Where(a => a?.Type == (Vehicle.VehicleType)item).ToList().ForEach(x => Console.WriteLine($"{(Vehicle.VehicleType)item}:\n{x}\n"));
+                    //garage.Where(a => a?.Type == Vehicle.VehicleType.Car).ToList().ForEach(x => Console.WriteLine($"Cars:\n{ x}"));
+                }
 
             }
             catch (Exception)

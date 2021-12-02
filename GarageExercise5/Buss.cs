@@ -14,7 +14,7 @@ namespace GarageExercise5
 
         public override string ToString()
         {
-            return $"Vehicle:\nRegNr:{RegNr}\nVType:{Type}\nSize:{Size}\n Spot:{GetSpot()}\n NPassengers:{NrPassengers}";
+            return $"Vehicle:\nRegNr:{RegNr}\nVType:{Type}\nSize:{Size}\nSpot:{GetSpot()}\nNPassengers:{NrPassengers}";
         }
 
 
