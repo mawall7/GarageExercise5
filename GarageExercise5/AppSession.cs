@@ -154,7 +154,7 @@ namespace GarageExercise5
                 //var v = new Car(t, regNr, size, spot, m);
                 //ToDo see available spots // cars
                 handler.Addnew(car, car.GetSpot());
-                Console.WriteLine($"Car with regNr {car.RegNr} parked at spot{car.GetSpot()}"); 
+                //Console.WriteLine($"Car with regNr {car.RegNr} parked at spot{car.GetSpot()}"); 
 
                        }
             catch (Exception e)
@@ -193,7 +193,7 @@ namespace GarageExercise5
             {
                 key = UI<Vehicle>.GetKey().ToString();
                 char mykey = key[1];
-                intkey = int.Parse(mykey.ToString());
+                intkey = int.Parse(mykey.ToString()) - 1;
 
                 if (intkey>=1 || intkey <= 3)
                 { 

@@ -49,7 +49,6 @@ namespace GarageExercise5
             {   foreach (var item in Enum.GetValues(typeof(Vehicle.VehicleType)))
                 {
                     garage.Where(a => a?.Type == (Vehicle.VehicleType)item).ToList().ForEach(x => Console.WriteLine($"{(Vehicle.VehicleType)item}:\n{x}\n"));
-                    //garage.Where(a => a?.Type == Vehicle.VehicleType.Car).ToList().ForEach(x => Console.WriteLine($"Cars:\n{ x}"));
                 }
 
             }
@@ -58,15 +57,12 @@ namespace GarageExercise5
 
                 throw;
             }
-            var NCars = 0;
-            var MCycles = 0;
-            var Airplanes = 0;
-            
+                      
         }
 
-        public void Addnew(Vehicle v, int x)
+        public  void Addnew(Vehicle v, int x)
         {
-            string message = garage.AddVehicle(v, x) ? "Vehicle Added" : "Vehicle could not be parked";
+            string message = garage.AddVehicle(v, x) ? $"Vehicle {v.RegNr} parked at spot{v.GetSpot()}!\n" : "Vehicle could not be parked\n";
             
            UI<string>.Print(message);
         }
