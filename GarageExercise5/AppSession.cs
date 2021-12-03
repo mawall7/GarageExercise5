@@ -122,18 +122,18 @@ namespace GarageExercise5
 
         private void AddNewVehicle()
         {
-            //UI<Vehicle>.PrintVehicleMenu(); ToDo
+          
             UI<String>.Print("Input TypeOfVehicle :\nCar = C, Bus = B, M = Motorcycle, J = Jeep\n");
             var key = UI<Vehicle>.GetKey();
             var dict = new Dictionary<ConsoleKey, Action>()
             {
                 {ConsoleKey.J, CreateJeep},
-                {ConsoleKey.B, CreateBus },
+                {ConsoleKey.B, CreateBuss },
                 {ConsoleKey.M, CreateMotorcycle },
                 {ConsoleKey.C, CreateCar },
                
             };
-            //handler.Addnew(handler.);
+        
             if (dict.ContainsKey(key))
             {
                 var method = dict[key];
@@ -150,18 +150,94 @@ namespace GarageExercise5
             {
 
                 Car car = new Car(Vehicle.VehicleType.Car, ReadregNr() , ReadSize(), ReadSpotNr(), ChooseModel());
-                //Vehicle v = AskforV(VTypes.Car); //använd dependency injection istället och fråga bara efter ett visst typ av fordon?
-                //var v = new Car(t, regNr, size, spot, m);
-                //ToDo see available spots // cars
                 handler.Addnew(car, car.GetSpot());
-                //Console.WriteLine($"Car with regNr {car.RegNr} parked at spot{car.GetSpot()}"); 
-
-                       }
+                
+            }
             catch (Exception e)
             {
 
                 Console.WriteLine(e.Message);
             }
+
+        }
+
+        private int ReadSize()
+        {
+            UI<string>.Print("Size : ");
+            return int.Parse(Console.ReadLine());
+        }
+
+
+        //private void GeneralCreate<T>(T c)  ToDo DI
+        //{
+        //    string r =  ReadregNr();
+        //    int s = ReadSize(); 
+
+        //    if(c is Motorcycle) {  } 
+
+        //}
+
+        private void CreateMotorcycle()
+        {
+            try
+            {
+
+                Motorcycle motorcycle = new Motorcycle(Vehicle.VehicleType.MotorCycle, ReadregNr(), ReadSize(), ReadSpotNr(), Choosecylinders());
+                handler.Addnew(motorcycle, motorcycle.GetSpot());
+
+            }
+            catch (Exception e)
+            {
+
+                Console.WriteLine(e.Message);
+            }
+
+        }
+
+        private void CreateJeep()
+        {
+            try
+            {
+
+                Jeep jeep = new Jeep(Vehicle.VehicleType.Jeep, ReadregNr(), ReadSize(), ReadSpotNr(), ReadHP());
+                handler.Addnew(jeep, jeep.GetSpot());
+
+            }
+            catch (Exception e)
+            {
+
+                Console.WriteLine(e.Message);
+            }
+
+        }
+
+        private void CreateBuss()
+        {
+            try
+            {
+
+                Buss buss = new Buss(Vehicle.VehicleType.Buss, ReadregNr(), ReadSize(), ReadSpotNr(), ReadPassengrs());
+                handler.Addnew(buss, buss.GetSpot());
+
+            }
+            catch (Exception e)
+            {
+
+                Console.WriteLine(e.Message);
+            }
+
+        }
+
+        private double ReadHP()
+        {
+            UI<string>.Print("Nr Of HosePowers : ");
+            return int.Parse(Console.ReadLine());
+        }
+
+        private int Choosecylinders()
+        {
+            UI<string>.Print("Nr Of Cylinders : ");
+            return int.Parse(Console.ReadLine());
 
         }
 
@@ -177,9 +253,9 @@ namespace GarageExercise5
             return int.Parse(Console.ReadLine());
         }
 
-        private int ReadSize()
+        private int ReadPassengrs()
         {
-            UI<string>.Print("Size:");
+            UI<string>.Print("NrPassengers:");
             return int.Parse(Console.ReadLine());
         }
       
@@ -210,21 +286,7 @@ namespace GarageExercise5
             
         }
 
-        private void CreateMotorcycle()
-        {
-            //Vehicle.VehicleType t, string regN, int size,int spot, int c
-            //var v = new Motocycle(t, regN, size, spot, c);
-        }
-
-        private void CreateBus()
-        {
-           // var v = new Buss(t, regN, size, spot, np);
-        }
-
-        private void CreateJeep()
-        {
-            //var v = new Jeep(t, regN, size, spot, hp);
-        }
+       
         private void ListVehicles()
         {
             UI<Vehicle>.Clear();

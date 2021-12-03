@@ -4,10 +4,10 @@ using System.Text;
 
 namespace GarageExercise5
 {
-    class Motocycle : Vehicle
+    class Motorcycle : Vehicle
     {
         private int nrCylinders;
-        public Motocycle(VehicleType type, string regNr, int size, int spot, int nrCyl) : base(type, regNr, size, spot)
+        public Motorcycle(VehicleType type, string regNr, int size, int spot, int nrCyl) : base(type, regNr, size, spot)
         {
             nrCylinders = nrCyl;
         }
